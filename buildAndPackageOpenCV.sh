@@ -166,6 +166,7 @@ time cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D WITH_OPENGL=ON \
       -D OPENCV_EXTRA_MODULES_PATH=$OPENCV_SOURCE_DIR/opencv_contrib/modules \
       -D BUILD_opencv_legacy=OFF \
+      -D CPACK_BINARY_DEB=ON \
       ../
 
 if [ $? -eq 0 ] ; then
