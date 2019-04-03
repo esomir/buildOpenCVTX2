@@ -113,6 +113,11 @@ sudo apt-get install -y python3-dev python3-numpy python3-py python3-pytest
 sudo apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev 
 
 cd $OPENCV_SOURCE_DIR
+git clone https://github.com/opencv/opencv_contrib.git
+cd opencv_contrib
+git checkout ${OPENCV_VERSION}
+
+cd $OPENCV_SOURCE_DIR
 git clone https://github.com/opencv/opencv.git
 cd opencv
 git checkout -b v${OPENCV_VERSION} ${OPENCV_VERSION}
@@ -159,7 +164,7 @@ time cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D WITH_GSTREAMER_0_10=OFF \
       -D WITH_QT=ON \
       -D WITH_OPENGL=ON \
-      -D OPENCV_EXTRA_MODULES_PATH=/home/nvidia/opencv_contrib/modules \
+      -D OPENCV_EXTRA_MODULES_PATH=$OPENCV_SOURCE_DIR/opencv_contrib/modules \
       -D BUILD_opencv_legacy=OFF \
       ../
 
