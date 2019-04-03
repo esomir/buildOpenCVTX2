@@ -139,6 +139,7 @@ cd build
 # Check OpenCV documentation for details
 
 
+
 time cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX} \
       -D WITH_CUDA=ON \
@@ -152,7 +153,8 @@ time cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D WITH_GSTREAMER_0_10=OFF \
       -D WITH_QT=ON \
       -D WITH_OPENGL=ON \
-      -D CPACK_BINARY_DEB=ON \
+      -D OPENCV_EXTRA_MODULES_PATH=/home/nvidia/opencv_contrib/modules \
+      -D BUILD_opencv_legacy=OFF \
       ../
 
 if [ $? -eq 0 ] ; then
